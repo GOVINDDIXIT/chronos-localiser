@@ -33,6 +33,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation project(path: ':chronoslocaliser')
     implementation 'androidx.multidex:multidex:2.0.1'
+
+    //Chronos Localiser
+    implementation 'com.github.govinddixit:chronos-localiser:1.0.0'
+
+    //implementation project(path: ':chronoslocaliser')
 }
