@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Chronos Localiser</string>
+    <string name="title">This is title</string>
+    <string name="about">This is about</string>
+    <string name="description">This is description</string>
+    <string name="change_language">Change Language</string>
+    <string name="english">English</string>
+    <string name="espa_ol">Español</string>
+    <string name="fran_ais">Français</string>
+    <string name="japanese">Japanese</string>
+    <string name="deutsch">Deutsch</string>
+    <string name="chinese">Chinese</string>
+</resources>

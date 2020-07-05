@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.govinddixit.chronoslocaliser.MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_chinese"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/chinese"
+            android:textColor="#000" />
+
+        <Button
+            android:id="@+id/btn_deutsch"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="@string/deutsch"
+            android:textColor="#000" />
+
+        <Button
+            android:id="@+id/btn_english"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="@string/english"
+            android:textColor="#000" />
+
+        <Button
+            android:id="@+id/btn_espanol"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="@string/espa_ol"
+            android:textColor="#000" />
+
+        <Button
+            android:id="@+id/btn_francais"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="@string/fran_ais"
+            android:textColor="#000" />
+
+        <Button
+            android:id="@+id/btn_japanese"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:text="@string/japanese"
+            android:textColor="#000" />
+    </LinearLayout>
+
+
+</RelativeLayout>
