@@ -1,9 +1,10 @@
 # Chronos Localiser :globe_with_meridians: :pencil:
 
+![Banner](static/banner.png)
 
-Android doesn't provide the direct support to change the language of the activities that are already created. Whenever we change the locale the new locale is applied to new activities only. In short the user have to restart all activities / app to have use the new language. 
+Android doesn't provide the direct support to change the language of the activities that are already created. Whenever we change the locale the new locale is applied to new activities only. In short the user have to restart all activities / app to have use the new language.
 
-### Solution :rocket: 
+### Solution :rocket:
 
 This library provide the solution to this problem, the update locale is applied to all the activities that will be created and also to those that are present in the back stack. Apart from this there are some other features which are provided by this library
 
@@ -24,7 +25,7 @@ Add it in your root build.gradle at the end of repositories:
 			maven { url 'https://jitpack.io' }
 		}
 	}
-**Step 2.** Add the dependency 
+**Step 2.** Add the dependency
 
 	dependencies {
 	        implementation 'com.github.govinddixit:chronos-localiser:1.0.0'
@@ -38,10 +39,10 @@ class Application : LocaleAwareApplication() {
   ....
 }
 ```
-  
+
 ***Extend your base activity class***
 ```
-open class BaseActivity : LocaleAwareCompatActivity() {  
+open class BaseActivity : LocaleAwareCompatActivity() {
   ....
 }
 ```
@@ -66,12 +67,12 @@ If you don't want to implement this feature in your code, just ignore the langua
 
 ```
 android {
-    ... 
-    bundle { 
-        language { 
-            enableSplit = false 
-        } 
-    } 
+    ...
+    bundle {
+        language {
+            enableSplit = false
+        }
+    }
 }
 ```
 
