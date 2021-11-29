@@ -1,0 +1,52 @@
+name: Manual Builds
+env:
+  ANDROID_SDK_ROOT: '/home/ubuntu/sdk/android'
+  JAVA_HOME: '/home/ubuntu/.sdkman/candidates/java/11.0.10-open'
+
+on:
+  workflow_dispatch:
+    inputs:
+      type:
+        description: 'Build type [debug]'
+        required: true
+        default: 'debug'
+
+jobs:
+  build:
+    runs-on: [self-hosted, Linux, release]
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          lfs: 'true'
+          submodules: 'recursive'
+      - name: Build
+        id: build
+        run: |
+          echo "::error::Running build -  ${{ github.event.inputs.type }} on ${GITHUB_REF#refs/heads/}"
+          source /home/ubuntu/.bashrc
+          source /etc/profile
+          bundle install --jobs 4 --retry 3
+          bundle exec fastlane build type:${{ github.event.inputs.type }}
+          source release-meta.properties
+          echo
+          echo
+          echo ::set-output name=APP_VERSION::$release_tag
+          echo ::set-output name=RELEASE_TITLE::$version_name RC$version_build \($version_code\)
+          echo "::set-output name=sha::$(git rev-parse --short HEAD)"
+          echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
+          echo "::debug::Download the apk from below artifact"
+          if [ ${{ github.event.inputs.type }} = "debug" ]; then
+              echo "Debug apk"
+              echo "::set-output name=path::app/build/outputs/apk/**/*.apk"
+          else
+              echo "others"
+              echo "::set-output name=path::app/build/outputs/apk/**/*.apk"
+          fi
+      - name: 'Upload Apk'
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ github.event.inputs.type }}-apk-${{ github.run_id }}
+          path: "${{steps.build.outputs.path}}"
+          retention-days: 10
